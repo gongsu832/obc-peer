@@ -295,7 +295,7 @@ Feature: lanching 3 peers
 		     | arg1 |  arg2 | arg3 | arg4 |
 		     |  a   |  100  |  b   |  200 |
 	    Then I should have received a chaincode name
-	    Then I wait up to "60" seconds for transaction to be committed to all peers
+	    Then I wait up to "45" seconds for transaction to be committed to all peers
 
 	    When requesting "/chain" from "vp0"
 	    Then I should get a JSON response with "height" = "2"

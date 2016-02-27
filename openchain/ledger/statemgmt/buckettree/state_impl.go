@@ -147,11 +147,11 @@ func (stateImpl *StateImpl) processBucketTreeDelta() error {
 		for _, bucketNode := range bucketNodes {
 			logger.Debug("bucketNode in tree-delta [%s]", bucketNode)
 			dbBucketNode, err := fetchBucketNodeFromDB(bucketNode.bucketKey)
-			logger.Debug("bucket node from db [%s]", dbBucketNode)
 			if err != nil {
 				return err
 			}
 			if dbBucketNode != nil {
+				logger.Debug("bucket node from db [%s]", dbBucketNode)
 				bucketNode.mergeBucketNode(dbBucketNode)
 				logger.Debug("After merge... bucketNode in tree-delta [%s]", bucketNode)
 			}
